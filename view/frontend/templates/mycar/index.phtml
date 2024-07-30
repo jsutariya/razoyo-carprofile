@@ -1,0 +1,53 @@
+<?php
+$myCar = $block->getMyCar();
+if($myCar && !empty($myCar)) {
+?>
+    <h3><?= __("Your selected car") ?></h3>
+    <div class="my-car-div-container">
+        <div class="my-car-image">
+            <img src="<?= $myCar['image']?>" title="<?= $myCar['make'] . ' ' . $myCar['model'] . ' ' . $myCar['year'] ?>" />
+        </div>
+        <div class="my-car-details">
+            <div class="car-detail-content">
+                <span class="car-title"><?= __("Make") ?></span>
+                <span class="car-value"><?= $myCar['make'] ?></span>
+            </div>
+            <div class="car-detail-content">
+                <span class="car-title"><?= __("Model") ?></span>
+                <span class="car-value"><?= $myCar['model'] ?></span>
+            </div>
+            <div class="car-detail-content">
+                <span class="car-title"><?= __("Year") ?></span>
+                <span class="car-value"><?= $myCar['year'] ?></span>
+            </div>
+            <div class="car-detail-content">
+                <span class="car-title"><?= __("Price") ?></span>
+                <span class="car-value"><?= $myCar['price'] ?></span>
+            </div>
+            <div class="car-detail-content">
+                <span class="car-title"><?= __("Seats") ?></span>
+                <span class="car-value"><?= $myCar['seats'] ?></span>
+            </div>
+            <div class="car-detail-content">
+                <span class="car-title"><?= __("MPG") ?></span>
+                <span class="car-value"><?= $myCar['mpg'] ?></span>
+            </div>
+        </div>
+    </div>
+    <div class="change-car-container">
+        <button class="change-car-button" id="change-your-car" title="<?= __("Change Your Car") ?>">
+    </div>
+<?php } else { ?>
+    <div class="select-car-container">
+        <h3><?= __("You have no car selected yet.") ?></h3>
+        <button class="change-car-button" id="change-your-car" title="<?= __("Select Your Car") ?>" ><?= __("Select Your Car") ?></button>
+    </div>
+<?php } ?>
+<div id="car-details-popup"></div>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "car_profile": {}
+        }
+    }
+</script>

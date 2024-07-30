@@ -1,0 +1,29 @@
+<?php
+$cars = $block->getAllCars();
+if (!empty($cars)) { ?>
+    <div class="cars-container">
+        <?php foreach ($cars as $car) { ?>
+            <div class="car-container">
+                <div class="data-row">
+                    <span class="class-title"><?= __("Year") ?></span>
+                    <span class="class-value"><?= $car['year'] ?></span>
+                </div>
+                <div class="data-row">
+                    <span class="class-title"><?= __("Make") ?></span>
+                    <span class="class-value"><?= $car['make'] ?></span>
+                </div>
+                <div class="data-row">
+                    <span class="class-title"><?= __("Model") ?></span>
+                    <span class="class-value"><?= $car['model'] ?></span>
+                </div>
+                <div class="data-row">
+                    <button class="select-car" id="<?= $car['id']?>" data-carid="<?= $car['id']?>"><?= __("Select") ?></button>
+                </div>
+            </div>
+        <?php } ?>
+    </div>
+<?php } else { ?>
+    <h2 class="no-car-message">
+        <?= __("No Cars Found.") ?>
+    </h2>
+<?php } ?>
